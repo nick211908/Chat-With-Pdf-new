@@ -4,6 +4,7 @@ from app.api.v1 import upload, chat
 from app.core.logger import setup_logging
 from app.core.config import settings
 import uvicorn
+import os
 
 # --- CHANGE ---
 # The lifespan manager is removed. Logging is now called directly.
@@ -31,3 +32,6 @@ def read_root():
     """Health check endpoint."""
     return {"status": "ok"}  
 
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8000))  # default 8000 locally
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
