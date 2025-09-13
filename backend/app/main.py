@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.v1 import upload, chat
 from app.core.logger import setup_logging
+from app.core.config import settings
+import uvicorn
 
 # --- CHANGE ---
 # The lifespan manager is removed. Logging is now called directly.
@@ -27,5 +29,5 @@ app.include_router(chat.router, prefix="/api/v1", tags=["Chat"])
 @app.get("/", tags=["Health Check"])
 def read_root():
     """Health check endpoint."""
-    return {"status": "ok"}
+    return {"status": "ok"}  
 

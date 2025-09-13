@@ -26,6 +26,9 @@ class Settings(BaseSettings):
     # Logging Configuration
     LOG_LEVEL: str = "INFO"
 
+    # Port Configuration
+    PORT: int = 8000
+
     # --- CORRECTED CONFIGURATION ---
     # This single dictionary now handles all model settings, resolving the conflict.
     # It tells Pydantic where to find the .env file and to ignore extra variables.
